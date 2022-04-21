@@ -6,6 +6,19 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+body {
+  background: #fff;
+}
+
+nav {
+  display: flex;
+  margin-left: -2em;
+  margin-right: -2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  background-color: #f2f2f2;
+}
+
 a {
   color: inherit;
   text-decoration: none;

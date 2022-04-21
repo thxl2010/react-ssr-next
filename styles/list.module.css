@@ -1,0 +1,23 @@
+.navA {
+  color: #0070f3;
+  line-height: 48px;
+  font-size: 18px;
+  margin-left: 1em;
+}
+
+.navA:hover {
+  color: #68b5fb;
+}
+
+.nav {
+  display: flex;
+  margin-left: -2em;
+  margin-right: -2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  background-color: #f2f2f2;
+}
+
+.navImg {
+  height: 48px;
+}

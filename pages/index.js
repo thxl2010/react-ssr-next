@@ -12,9 +12,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <nav>
+      <nav className="nav">
         <Link href="/list">
-          <a>jump to list page</a>
+          <a className="nav-a">jump to list page</a>
         </Link>
       </nav>
       <main className={styles.main}>
@@ -70,6 +70,31 @@ export default function Home() {
           </span>
         </a>
       </footer>
+
+      {/* style : styled-jsx */}
+      <style jsx>{`
+        .nav {
+          display: flex;
+          margin-left: -2em;
+          margin-right: -2em;
+          padding-left: 2em;
+          padding-right: 2em;
+          background-color: #f2f2f2;
+        }
+        .nav-a {
+          color: #0070f3;
+          line-height: 48px;
+          font-size: 18px;
+        }
+        .nav-a:hover {
+          color: #68b5fb;
+        }
+      `}</style>
+      <style global jsx>{`
+        body {
+          background: #fff;
+        }
+      `}</style>
     </div>
   );
 }
