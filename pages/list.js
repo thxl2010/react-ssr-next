@@ -50,6 +50,7 @@ export default function List({ data }) {
  * @param {object} context - context 中会包含特定的请求参数
  */
 export async function getServerSideProps(context) {
+  console.log('context :', context);
   const data = await read(join(process.cwd(), 'pages', '_app.js'), 'utf-8');
   console.log('预渲染 : 服务器端渲染 getServerSideProps');
   console.log('SSR read pages/_app.js :\n', data);
