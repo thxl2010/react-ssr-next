@@ -35,11 +35,28 @@ export default function List({ data }) {
  * 预渲染
  * 静态生成 getStaticProps
  */
-export async function getStaticProps() {
+// export async function getStaticProps() {
+//   const data = await read(join(process.cwd(), 'pages', '_app.js'), 'utf-8');
+//   console.log('预渲染 : 静态生成 getStaticProps');
+//   console.log('SSG read pages/_app.js :\n', data);
+//   return {
+//     props: { data },
+//   };
+// }
+
+/**
+ * 预渲染
+ * 服务器端渲染 getServerSideProps
+ * @param {object} context - context 中会包含特定的请求参数
+ */
+export async function getServerSideProps(context) {
   const data = await read(join(process.cwd(), 'pages', '_app.js'), 'utf-8');
-  console.log('预渲染 : 静态生成 getStaticProps');
-  console.log('read pages/_app.js :\n', data);
+  console.log('预渲染 : 服务器端渲染 getServerSideProps');
+  console.log('SSR read pages/_app.js :\n', data);
   return {
-    props: { data },
+    props: {
+      // props from your Component
+      data,
+    },
   };
 }
