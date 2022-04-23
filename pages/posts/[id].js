@@ -1,4 +1,10 @@
+import { useRouter } from 'next/router';
+
 export default function Post({ data }) {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <div>loading</div>;
+  }
   return (
     <ul>
       <li>
@@ -20,6 +26,7 @@ export async function getStaticPaths() {
     paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
     //当用户访问的路由参数没有在当前函数中返回时，是否显示404页面 false∶显示 true 不显示
     fallback: false,
+    // fallback: true,
   };
 }
 
@@ -36,6 +43,9 @@ export async function getStaticProps({ params }) {
       break;
     case '2':
       data = { id: 2, title: 'Next' };
+      break;
+    case '3':
+      data = { id: 3, title: 'Hello Next' };
       break;
     default:
       data = {};
