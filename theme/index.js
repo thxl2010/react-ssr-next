@@ -11,6 +11,6 @@ const theme = extendTheme({
   // breakpoints,
   // components,
 });
-console.log('theme :', theme);
+// console.log('theme :', theme);
 
 export default theme;

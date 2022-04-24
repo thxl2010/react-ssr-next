@@ -3,7 +3,6 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import Head from 'next/head';
 import { Box, Heading, Text, Button } from '@chakra-ui/react';
-import { getSwiper } from '../api';
 
 const swiperContainer = css`
   position: relative;
@@ -66,8 +65,4 @@ export default function Swiper({ data }) {
       </Carousel>
     </>
   );
-}
-
-export function loadSwiper() {
-  return getSwiper();
 }

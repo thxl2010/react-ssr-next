@@ -10,5 +10,5 @@ export const getSwiper = () => http.get('/swiper');
 export const getMovie = () => http.get('/movie');
 // 电影详情
 export const getMovieDetail = (params) => http.get('/detail', { params });
-// 获取电影id集合
+// 获取电影 id 集合
 export const getVideos = () => http.get('/videos');

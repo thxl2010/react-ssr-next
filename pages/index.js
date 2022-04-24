@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '../components/Layout';
-import Swiper, { loadSwiper } from '../components/Swiper';
+import Swiper from '../components/Swiper';
+import { getSwiper } from '../api';
 import Movie from '../components/Movie';
 
 export default function Home({ swiper }) {
@@ -22,7 +23,7 @@ export default function Home({ swiper }) {
 }
 
 export async function getStaticProps() {
-  const { data: swiper } = await loadSwiper();
+  const { data: swiper } = await getSwiper();
 
   return {
     props: { swiper },
