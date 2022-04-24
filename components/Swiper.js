@@ -2,6 +2,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import Head from 'next/head';
+import Link from 'next/link';
 import { Box, Heading, Text, Button } from '@chakra-ui/react';
 
 const swiperContainer = css`
@@ -58,7 +59,11 @@ export default function Swiper({ data }) {
             <Box>
               <Heading>{swiper.title}</Heading>
               <Text>{swiper.description}</Text>
-              <Button colorScheme="red">CHECK DETAIL</Button>
+              <Button colorScheme="red">
+                <Link href="/detail/[id]" as={`/detail/${swiper.vid}`}>
+                  <a>CHECK DETAIL</a>
+                </Link>
+              </Button>
             </Box>
           </CarouselItem>
         ))}

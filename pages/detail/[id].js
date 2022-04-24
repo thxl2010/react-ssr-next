@@ -2,6 +2,7 @@ import { Box, Divider, Heading, Text } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 import Head from 'next/head';
 import Layout from '../../components/Layout';
+import { getVideos, getMovieDetail } from '../../api';
 
 const detailContainer = css`
   padding: 10px 0;
@@ -15,7 +16,7 @@ const detailContainer = css`
   }
 `;
 
-export default function Detail() {
+export default function Detail({ detail }) {
   return (
     <>
       <Head>
@@ -26,7 +27,7 @@ export default function Detail() {
       <Layout>
         <Box maxW={1200} mx="auto" mt={70}>
           <Heading as="h2" size="xl">
-            Marvel Mission Recap: Captain Marvel’s Star of Hala
+            {detail.title}
           </Heading>
           <Heading
             as="h3"
@@ -35,7 +36,7 @@ export default function Detail() {
             fontWeight="light"
             mt="10px"
           >
-            The results are out of this world!
+            {detail.sub}
           </Heading>
           <Divider mt="10px" />
           <Box
@@ -44,22 +45,37 @@ export default function Detail() {
             justifyContent="space-between"
             alignItems="center"
           >
-            <Text>作者：Tomas</Text>
-            <Text>发布时间：2022-01-01</Text>
+            <Text>作者：{detail.author}</Text>
+            <Text>发布时间：{detail.publish}</Text>
           </Box>
           <Divider mt="10px" />
-          <Box css={detailContainer}>
-            <p>
-              Congrats agents — it appears that many of you successfully
-              completed the latest Marvel Mission!
-            </p>
-            <p>
-              Congrats agents — it appears that many of you successfully
-              completed the latest Marvel Mission!
-            </p>
-          </Box>
+          <Box
+            css={detailContainer}
+            dangerouslySetInnerHTML={{ __html: detail.content }}
+          />
         </Box>
       </Layout>
     </>
   );
+}
+
+export async function getStaticPaths() {
+  // ['1', '2']
+  const { data } = await getVideos();
+
+  const paths = data.map((id) => ({ params: { id } }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { id } = params;
+  const { data: detail } = await getMovieDetail({ id });
+
+  return {
+    props: { detail },
+  };
 }
