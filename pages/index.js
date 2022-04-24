@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '../components/Layout';
-import Swiper from '../components/Swiper';
+import Swiper, { loadSwiper } from '../components/Swiper';
 import Movie from '../components/Movie';
 
-export default function Home() {
+export default function Home({ swiper }) {
   return (
     <>
       <Head>
@@ -14,9 +14,17 @@ export default function Home() {
       </Head>
 
       <Layout>
-        <Swiper />
+        <Swiper data={swiper} />
         <Movie />
       </Layout>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const { data: swiper } = await loadSwiper();
+
+  return {
+    props: { swiper },
+  };
 }

@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import Head from 'next/head';
 import { Box, Heading, Text, Button } from '@chakra-ui/react';
+import { getSwiper } from '../api';
 
 const swiperContainer = css`
   position: relative;
@@ -40,7 +41,7 @@ const CarouselItem = styled.div`
   }
 `;
 
-export default function Swiper() {
+export default function Swiper({ data }) {
   return (
     <>
       <Head>
@@ -52,31 +53,21 @@ export default function Swiper() {
         showIndicators={false}
         showStatus={false}
       >
-        <CarouselItem>
-          <img src="/images/1.jpg" />
-          <Box>
-            <Heading>KING IN BLACK</Heading>
-            <Text>哈哈哈</Text>
-            <Button>CHECK DETAIL</Button>
-          </Box>
-        </CarouselItem>
-        <CarouselItem>
-          <img src="/images/2.jpg" />
-          <Box>
-            <Heading>test</Heading>
-            <Text>666</Text>
-            <Button>14124312</Button>
-          </Box>
-        </CarouselItem>
-        <CarouselItem>
-          <img src="/images/3.jpg" />
-          <Box>
-            <Heading>333333333333</Heading>
-            <Text>333</Text>
-            <Button>333333</Button>
-          </Box>
-        </CarouselItem>
+        {data.map((swiper) => (
+          <CarouselItem key={swiper.id}>
+            <img src={swiper.url} />
+            <Box>
+              <Heading>{swiper.title}</Heading>
+              <Text>{swiper.description}</Text>
+              <Button colorScheme="red">CHECK DETAIL</Button>
+            </Box>
+          </CarouselItem>
+        ))}
       </Carousel>
     </>
   );
+}
+
+export function loadSwiper() {
+  return getSwiper();
 }
