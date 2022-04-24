@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+> [next guide](https://gitee.com/2010thxl/fed-e-task-01-01/blob/develop/part-4/module-4/task-2-Next/notes/React-SSR-Next.md)
+
+> next demo branch guide: [react-ssr-next/tree/guide/](https://gitee.com/2010thxl/react-ssr-next/tree/guide/)
+
+> next & Chakra-UI demo branch movie: [react-ssr-next/tree/demo-movie/](https://gitee.com/2010thxl/react-ssr-next/tree/demo-movie/)
+
 ## Getting Started
 
 First, run the development server:
