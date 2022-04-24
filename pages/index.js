@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Header from '../components/Header';
 import Navigation from '../components/Navigation';
 import Swiper from '../components/Swiper';
+import Movie from '../components/Movie';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Navigation />
       <main>
         <Swiper />
+        <Movie />
       </main>
 
       <footer></footer>
