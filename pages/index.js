@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Layout from '../components/Layout';
 import Swiper from '../components/Swiper';
 import { getSwiper, getMovie } from '../api';

@@ -63,7 +63,7 @@ export default function Header() {
             注册
           </Button>
         </SignInAndJoin>
-        <Image css={logo} src="/images/logo.png" />
+        <Image css={logo} src="/images/logo.png" alt="logo" />
         <Search>
           <FaSearch />
         </Search>

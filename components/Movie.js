@@ -1,13 +1,6 @@
-import {
-  Box,
-  Container,
-  Button,
-  Image,
-  HStack,
-  Heading,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Image, HStack, Heading, Text } from '@chakra-ui/react';
 import { MdMovie } from 'react-icons/md';
+import Link from 'next/link';
 
 export default function Movie({ data, title }) {
   return (
@@ -21,8 +14,12 @@ export default function Movie({ data, title }) {
       <HStack mt="20px" alignItems="flex-start">
         {data.map((movie) => (
           <Box w={290} key={movie.id}>
-            <Image src={movie.url} />
-            <Text mt={10}>{movie.title}</Text>
+            <Link href="/detail/[id]" as={`/detail/${movie.vid}`}>
+              <a>
+                <Image src={movie.url} alt={movie.title} />
+                <Text mt={10}>{movie.title}</Text>
+              </a>
+            </Link>
           </Box>
         ))}
       </HStack>

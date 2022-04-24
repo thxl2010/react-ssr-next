@@ -1,4 +1,4 @@
-import { Box, Container, Button, Image, HStack } from '@chakra-ui/react';
+import { Box, HStack } from '@chakra-ui/react';
 import Link from 'next/link';
 
 export default function Navigation() {

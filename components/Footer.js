@@ -13,6 +13,7 @@ export default function Footer() {
       <a
         href="https://gitee.com/2010thxl/react-ssr-next/tree/demo-movie"
         target="_blank"
+        rel="noreferrer"
       >
         Duyb
       </a>
