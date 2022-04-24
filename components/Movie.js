@@ -18,7 +18,7 @@ export default function Movie({ data, title }) {
           {title}
         </Heading>
       </HStack>
-      <HStack alignItems="flex-start">
+      <HStack mt="20px" alignItems="flex-start">
         {data.map((movie) => (
           <Box w={290} key={movie.id}>
             <Image src={movie.url} />
