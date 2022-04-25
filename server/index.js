@@ -6,7 +6,7 @@
  * @Author: Duyb
  * @Date: 2022-04-24 23:14:45
  * @Last Modified by: Duyb
- * @Last Modified time: 2022-04-25 13:51:55
+ * @Last Modified time: 2022-04-25 14:39:44
  */
 const express = require('express');
 const next = require('next');
@@ -21,7 +21,7 @@ app.prepare().then(() => {
 
   // 自定义路由，写在 handle 前边
   server.get('/hello', (req, res) => {
-    res.send('Hello Next.js');
+    res.send('Hello Next.js!');
   });
 
   server.all('*', (req, res) => {
